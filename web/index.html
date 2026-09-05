@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Low-Latency Exchange Simulator</title>
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+  <header>
+    <h1>Low-latency exchange simulator</h1>
+    <p class="subtitle">Demo visualization layer — simulated orders and data only</p>
+  </header>
+
+  <main>
+    <section class="panel order-entry">
+      <h2>Order entry</h2>
+      <label>Side
+        <select id="side">
+          <option value="BUY">Buy</option>
+          <option value="SELL">Sell</option>
+        </select>
+      </label>
+      <label>Price <input id="price" type="number" step="0.01" value="100.25" /></label>
+      <label>Quantity <input id="quantity" type="number" value="100" /></label>
+      <button id="placeOrder">Place order</button>
+      <p class="perf">Throughput <span id="perfThroughput">see benchmarks/</span></p>
+      <p class="perf">p99 latency <span id="perfP99">see benchmarks/</span></p>
+    </section>
+
+    <section class="panel order-book">
+      <h2>Order Book</h2>
+      <div class="book-columns">
+        <div>
+          <h3>ASKS</h3>
+          <table id="asksTable"><tbody></tbody></table>
+        </div>
+        <div>
+          <h3>BIDS</h3>
+          <table id="bidsTable"><tbody></tbody></table>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel trades">
+      <h2>Recent Trades</h2>
+      <table id="tradesTable"><tbody></tbody></table>
+    </section>
+  </main>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

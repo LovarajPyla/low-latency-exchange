@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@500;600&display=swap');
+
+:root {
+  --bg: #060b14;
+  --panel: #0d1526;
+  --line: #1c2a42;
+  --text: #e4e9f2;
+  --muted: #6b7a99;
+  --bid: #21c55d;
+  --ask: #ef4444;
+  --accent: #f2a93b;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: "IBM Plex Mono", Menlo, Consolas, monospace;
+  margin: 0;
+}
+
+header {
+  padding: 1.75rem 2rem 1.25rem;
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+header h1 {
+  margin: 0;
+  font-family: "IBM Plex Sans", sans-serif;
+  font-weight: 600;
+  font-size: 1.15rem;
+  letter-spacing: 0.01em;
+}
+
+.subtitle { color: var(--muted); font-size: 0.8rem; margin: 0; }
+
+main {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 1px;
+  padding: 1px 0 0;
+  background: var(--line);
+}
+
+.panel {
+  background: var(--bg);
+  padding: 1.25rem 1.5rem;
+}
+
+.trades { grid-column: 1 / -1; border-top: 1px solid var(--line); }
+
+h2 {
+  margin: 0 0 1rem;
+  font-family: "IBM Plex Sans", sans-serif;
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--text);
+}
+h3 { font-size: 0.75rem; color: var(--muted); font-weight: 500; margin: 0 0 0.5rem; }
+
+label {
+  display: block;
+  margin-bottom: 0.9rem;
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+
+input, select {
+  width: 100%;
+  padding: 0.5rem 0.6rem;
+  margin-top: 0.35rem;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  color: var(--text);
+  font-family: inherit;
+  font-size: 0.9rem;
+}
+input:focus, select:focus { outline: 1px solid var(--accent); }
+
+button {
+  width: 100%;
+  padding: 0.65rem;
+  background: var(--accent);
+  border: none;
+  color: #1a1206;
+  font-family: "IBM Plex Sans", sans-serif;
+  font-weight: 600;
+  font-size: 0.85rem;
+  cursor: pointer;
+  margin-top: 0.25rem;
+}
+button:hover { background: #ffbe5c; }
+button:focus-visible { outline: 2px solid var(--text); outline-offset: 2px; }
+
+.perf { font-size: 0.75rem; color: var(--muted); margin: 0.9rem 0 0; display: flex; justify-content: space-between; }
+.perf span { color: var(--text); }
+
+.book-columns { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+
+table { width: 100%; border-collapse: collapse; font-size: 0.85rem; font-variant-numeric: tabular-nums; }
+td { padding: 0.3rem 0.4rem; border-bottom: 1px solid var(--line); }
+#asksTable td:first-child { color: var(--ask); }
+#bidsTable td:first-child { color: var(--bid); }
+#tradesTable td:nth-child(3) { color: var(--muted); }
+
+@media (max-width: 720px) {
+  main { grid-template-columns: 1fr; }
+  .book-columns { grid-template-columns: 1fr 1fr; }
+}
