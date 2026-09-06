@@ -13,7 +13,7 @@
 FROM ubuntu:24.04 AS cpp-build
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
-    g++ cmake build-essential ca-certificates \
+    g++ cmake build-essential libgtest-dev ca-certificates \
     && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /src
